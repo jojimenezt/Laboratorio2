@@ -134,10 +134,12 @@ public class GestorPlataforma extends Persona{
         }
     }
     
-    public void eliminarPosibleComprador(String nombre){
-        /*for (Iterator<Promotor> iterator = promotor.iterator(); iterator.hasNext();) {
-            Promotor next = iterator.next();
-            
-        }*/
+    public void eliminarPosibleComprador(String nombre,Iniciativa iniciativa){
+        ArrayList<Aportante> aportantes= crearSubasta(iniciativa);
+        for(int i=0;i<aportantes.size();i++){
+            if(aportantes.get(i).getNombre().equals(nombre)){
+                aportantes.remove(i);
+            }
+        }
     }
 }
