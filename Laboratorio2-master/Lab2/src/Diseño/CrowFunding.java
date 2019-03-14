@@ -26,6 +26,7 @@ public class CrowFunding {
     private Button promotor;
     private Button aportante;
     private Button iniciativa;
+    private Button subasta;
     private HBox h;
     private VBox v;
     private Scene scene;
@@ -36,7 +37,8 @@ public class CrowFunding {
         promotor=new Button("Agregar promotor");
         aportante=new Button("Agregar aportante:");
         iniciativa=new Button("Agregar iniciativa");
-        h=new HBox(promotor,aportante,iniciativa);
+        subasta=new Button("Crear Subasta");
+        h=new HBox(promotor,aportante,iniciativa,subasta);
         v=new VBox(titulo,h);
         scene=new Scene(v,500,500);
     }
@@ -104,9 +106,21 @@ public class CrowFunding {
     public void setScene(Scene scene) {
         this.scene = scene;
     }
+
+    public Button getSubasta() {
+        return subasta;
+    }
+
+    public void setSubasta(Button subasta) {
+        this.subasta = subasta;
+    }
+
+    
     
         
-        
+    
+    
+    
         
     }
     

@@ -35,6 +35,9 @@ public class FAportante {
     private Label apellido;
     private TextField campoApellido;
     
+    private Label cedula;
+    private TextField campoCedula;
+    
     private Label dinero;
     private TextField campoDinero;
     
@@ -80,9 +83,7 @@ public class FAportante {
         caja=new HBox(agregar,volver);
         grid.add(caja, 1, 5);
         escena=new Scene(grid,500,500);
-        aportante=new Aportante(0.0,null, null);
-        
-        
+        aportante=new Aportante(0.0,null, null,0);
     }
     
    

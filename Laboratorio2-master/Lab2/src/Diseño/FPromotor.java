@@ -36,6 +36,9 @@ public class FPromotor {
     private Label apellido;
     private TextField campoApellido;
     
+    private Label cedula;
+    private TextField campoCedula;
+    
   
     private Button agregar;
     private Button volver;
@@ -74,7 +77,7 @@ public class FPromotor {
         caja=new HBox(agregar,volver);
         grid.add(caja, 1, 4);
         escena=new Scene(grid,500,500);
-        promotor=new Promotor(null, null);
+        promotor=new Promotor(null, null,0);
         
         
         

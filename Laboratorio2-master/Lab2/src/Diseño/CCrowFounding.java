@@ -23,6 +23,7 @@ public class CCrowFounding {
         cf.getPromotor().setOnAction(new Ep());
         cf.getAportante().setOnAction(new Ea());
         cf.getIniciativa().setOnAction(new Ei());
+        cf.getSubasta().setOnAction(new ESubasta());
     }
     int ac=0;//revisar asignacion del promotor a la iniciativa que se agregue
     
@@ -55,6 +56,16 @@ public class CCrowFounding {
             CIniciativa ci=new CIniciativa(gestor,gestor.getPromotor().get(ac));
             ci.mostrarVista();
             ac++;
+        }
+        
+    }
+    
+    class ESubasta implements EventHandler<ActionEvent>{
+
+        @Override
+        public void handle(ActionEvent event) {
+            CVSubasta subasta= new CVSubasta(gestor);
+            subasta.mostrarVista();
         }
         
     }

@@ -28,8 +28,8 @@ public class GestorPlataforma extends Persona{
         this.comprado = comprado;
     }
     
-    public GestorPlataforma(double fondo, ArrayList<Promotor> promotor, ArrayList<Aportante> prestamistas, String nombre, String apellido) {
-        super(nombre, apellido);
+    public GestorPlataforma(double fondo, ArrayList<Promotor> promotor, ArrayList<Aportante> prestamistas, String nombre, String apellido, int cedula) {
+        super(nombre, apellido,cedula);
         this.fondo = fondo;
         this.promotor = promotor;
         this.prestamistas = prestamistas;
@@ -98,6 +98,8 @@ public class GestorPlataforma extends Persona{
     }
     
     public ArrayList<Aportante> crearSubasta(Iniciativa iniciativa){
+        subasta.setIniciativa(iniciativa);
+        
         this.subasta.setValorMax(iniciativa.getValorMax());
         this.subasta.setValorMin(iniciativa.getValorMin());
         this.subasta.setIntervalo(iniciativa.getIntervalo());
@@ -105,6 +107,7 @@ public class GestorPlataforma extends Persona{
         for(int i=0;i<=this.prestamistas.size();i++){
                 posiblesCompradores.add(this.prestamistas.get(i));
         }
+        subasta.setPosiblesCompradores(posiblesCompradores);
         return posiblesCompradores;
     }
     
@@ -116,8 +119,7 @@ public class GestorPlataforma extends Persona{
             for (int i=0;i<=posiblesCompradores.size();i++){
                 if(posiblesCompradores.get(i).getDinero()>=iniciativa.getValorMax()){
                     //mostrar pestaña compra por parte prestamista
-                    if(i<posiblesCompradores.size()){//Si en algun momento aceptan la subasta se cancela el ciclo, y tramitamos prestamo
-                        this.comprado = true;
+                    if(posiblesCompradores.get(i).isComproIniciativa()){//Si en algun momento aceptan la subasta se cancela el ciclo, y tramitamos prestamo
                         break;
                     }    
                 }
@@ -142,4 +144,24 @@ public class GestorPlataforma extends Persona{
             }
         }
     }
+    //Metodo que hace que un aportante acepte iniciativa
+    public void aceptarAportanteIniciativa(Aportante aportante, Iniciativa iniciativa){
+        aportante.setComproIniciativa(true);
+        iniciativa.setSubastado(true);
+    }
+    
+    public ArrayList<Aportante> rechazarAportanteIniciativa(Aportante aportante, Iniciativa iniciativa){
+        ArrayList<Aportante> posiblesCompradores2= new ArrayList<>();
+        posiblesCompradores2= crearSubasta(iniciativa);
+        for(int i=0;i<posiblesCompradores2.size();i++){
+            if(posiblesCompradores2.get(i).equals(aportante)){
+                posiblesCompradores2.remove(i);
+            }
+        }
+        
+        return posiblesCompradores2;
+        
+    }
+    
+    
 }

@@ -11,11 +11,14 @@ package LogicaNegocio;
  * @author Lenovo
  */
 public class Aportante extends Persona{
+    private int cedula;
     private double dinero;
+    private boolean comproIniciativa;
 
-    public Aportante(double dinero, String nombre, String apellido) {
-        super(nombre, apellido);
+    public Aportante(double dinero, String nombre, String apellido, int cedula) {
+        super(nombre, apellido,cedula);
         this.dinero = dinero;
+        this.comproIniciativa=false;
     }
 
     public double getDinero() {
@@ -26,4 +29,13 @@ public class Aportante extends Persona{
         this.dinero = dinero;
     }
 
+    public boolean isComproIniciativa() {
+        return comproIniciativa;
+    }
+
+    public void setComproIniciativa(boolean comproIniciativa) {
+        this.comproIniciativa = comproIniciativa;
+    }
+    
+    
 }
