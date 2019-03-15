@@ -11,7 +11,6 @@ package LogicaNegocio;
  * @author Lenovo
  */
 public class Aportante extends Persona{
-    private int cedula;
     private double dinero;
     private boolean comproIniciativa;
 

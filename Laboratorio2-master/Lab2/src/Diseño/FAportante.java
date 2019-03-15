@@ -38,8 +38,11 @@ public class FAportante {
     private Label cedula;
     private TextField campoCedula;
     
+    
     private Label dinero;
     private TextField campoDinero;
+    
+    private Label hecho;
     
   
     private Button agregar;
@@ -71,11 +74,20 @@ public class FAportante {
         campoApellido=new TextField();
         grid.add(campoApellido, 1, 2);
         
+        cedula=new Label("Cedula: ");
+        grid.add(cedula, 0, 3);
+        
+        campoCedula= new TextField();
+        grid.add(campoCedula, 1, 3);
+        
         dinero=new Label("Dinero: ");
-        grid.add(dinero, 0, 3);
+        grid.add(dinero, 0, 4);
         
         campoDinero=new TextField();
-        grid.add(campoDinero, 1, 3);
+        grid.add(campoDinero, 1, 4);
+        
+        hecho=new Label("");
+        grid.add(hecho, 0, 4);
         
         agregar= new Button("Agregar");
         volver=new Button("Volver");
@@ -206,6 +218,31 @@ public class FAportante {
     public void setCampoDinero(TextField campoDinero) {
         this.campoDinero = campoDinero;
     }
+
+    public Label getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(Label cedula) {
+        this.cedula = cedula;
+    }
+
+    public TextField getCampoCedula() {
+        return campoCedula;
+    }
+
+    public void setCampoCedula(TextField campoCedula) {
+        this.campoCedula = campoCedula;
+    }
+
+    public Label getHecho() {
+        return hecho;
+    }
+
+    public void setHecho(Label hecho) {
+        this.hecho = hecho;
+    }
+    
     
     
     

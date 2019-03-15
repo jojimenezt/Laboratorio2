@@ -8,6 +8,7 @@ package Diseño;
 import LogicaNegocio.GestorPlataforma;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -52,11 +53,26 @@ public class CCrowFounding {
 
         @Override
         public void handle(ActionEvent event) {
-            if(gestor.getPromotor().size()==0) throw new IndexOutOfBoundsException("Debes inscribir al promotor de la iniciativa");
-            CIniciativa ci=new CIniciativa(gestor,gestor.getPromotor().get(ac));
-            ci.mostrarVista();
-            ac++;
-        }
+            
+            try{
+                if(gestor.getPromotor()==null){
+                    throw new NullPointerException ("Debes inscribir al promotor de la iniciativa");
+                }
+                
+                CIniciativa ci=new CIniciativa(gestor,gestor.getPromotor().get(ac));
+                ci.mostrarVista();
+                ac++;
+                
+            }catch(NullPointerException e){
+                Alert alert= new Alert(Alert.AlertType.ERROR,e.getMessage());
+                alert.setTitle("Error");
+                alert.showAndWait();
+            }catch(IndexOutOfBoundsException f){
+                Alert alert= new Alert(Alert.AlertType.ERROR,"No existen promotres en el sistema, debes agregar almenos un Promotor");
+                alert.setTitle("Error");
+                alert.showAndWait();
+            }
+        }//COLOCAR BIEN ESTE ALERT PARA QUE INDIQUE EL ERROR    
         
     }
     

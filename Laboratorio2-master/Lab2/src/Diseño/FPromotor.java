@@ -39,6 +39,7 @@ public class FPromotor {
     private Label cedula;
     private TextField campoCedula;
     
+    private Label hecho;
   
     private Button agregar;
     private Button volver;
@@ -71,11 +72,20 @@ public class FPromotor {
         campoApellido=new TextField();
         grid.add(campoApellido, 1, 2);
         
+        cedula=new Label("Cedula: ");
+        grid.add(cedula, 0, 3);
+        
+        campoCedula= new TextField();
+        grid.add(campoCedula, 1, 3);
+        
+        hecho=new Label("");
+        grid.add(hecho, 0, 4);
+        
         agregar= new Button("Agregar");
         volver=new Button("Volver");
         
         caja=new HBox(agregar,volver);
-        grid.add(caja, 1, 4);
+        grid.add(caja, 1, 5);
         escena=new Scene(grid,500,500);
         promotor=new Promotor(null, null,0);
         
@@ -145,6 +155,30 @@ public class FPromotor {
         this.campoApellido = campoApellido;
     }
 
+    public Label getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(Label cedula) {
+        this.cedula = cedula;
+    }
+
+    public TextField getCampoCedula() {
+        return campoCedula;
+    }
+
+    public void setCampoCedula(TextField campoCedula) {
+        this.campoCedula = campoCedula;
+    }
+
+    public Label getHecho() {
+        return hecho;
+    }
+
+    public void setHecho(Label hecho) {
+        this.hecho = hecho;
+    }
+    
     public Button getAgregar() {
         return agregar;
     }
@@ -177,6 +211,8 @@ public class FPromotor {
     public void setCaja(HBox caja) {
         this.caja = caja;
     }
+    
+    
     
     
     

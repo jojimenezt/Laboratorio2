@@ -30,20 +30,17 @@ public class Main extends Application{
         GestorPlataforma gestor=new GestorPlataforma(0, promotores, aportantes, "gestor", "plataforma",1000000);
         CCrowFounding c= new CCrowFounding(gestor);
         c.mostrar();
-                 
+        
+       
     }
     
     
     
     public static void main(String[] args) {
-         try{
+         
         launch(args);
        
-    }catch(IndexOutOfBoundsException e){
-            Alert alert= new Alert(Alert.AlertType.ERROR,e.getMessage());
-            alert.setTitle("Error");
-            alert.show();
-        }//COLOCAR BIEN ESTE ALERT PARA QUE INDIQUE EL ERROR    
+    
 
 
     

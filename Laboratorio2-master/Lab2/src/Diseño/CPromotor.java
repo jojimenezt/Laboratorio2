@@ -1,6 +1,11 @@
 package Diseño;
 
 import LogicaNegocio.GestorPlataforma;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -31,9 +36,18 @@ public class CPromotor {
 
         @Override
         public void handle(ActionEvent event) {
-            promotor.getPromotor().setNombre(promotor.getCampoNombre().getText());
-            promotor.getPromotor().setApellido(promotor.getCampoNombre().getText());
-            gestor.addPromotor(promotor.getPromotor());
+            try {
+                PrintStream output=new PrintStream(new File("datos/Promotores.txt"));
+                promotor.getPromotor().setNombre(promotor.getCampoNombre().getText());
+                promotor.getPromotor().setApellido(promotor.getCampoApellido().getText());
+                promotor.getPromotor().setCedula(Integer.parseInt(promotor.getCampoCedula().getText()));
+                output.println(promotor.getPromotor().getNombre() + " : " + promotor.getPromotor().getApellido()+ " : "+ promotor.getPromotor().getCedula());
+                gestor.addPromotor(promotor.getPromotor());
+                promotor.getHecho().setText("Se ha agregado el promotor");
+            } catch (FileNotFoundException ex) {
+                System.out.println("");
+            }
+            
         }
         
     }

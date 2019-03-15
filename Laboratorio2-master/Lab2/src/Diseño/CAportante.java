@@ -6,6 +6,11 @@
 package Diseño;
 
 import LogicaNegocio.GestorPlataforma;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -28,10 +33,19 @@ public class CAportante {
 
         @Override
         public void handle(ActionEvent event) {
-            fa.getAportante().setNombre(fa.getCampoNombre().getText());
-            fa.getAportante().setApellido(fa.getCampoApellido().getText());
-            fa.getAportante().setDinero(Double.parseDouble(fa.getCampoDinero().getText()));
-            gestor.addPrestamista(fa.getAportante());
+            try {
+                PrintStream output=new PrintStream(new File("datos/Aportantes.txt"));
+                fa.getAportante().setNombre(fa.getCampoNombre().getText());
+                fa.getAportante().setApellido(fa.getCampoApellido().getText());
+                fa.getAportante().setDinero(Double.parseDouble(fa.getCampoDinero().getText()));
+                fa.getAportante().setCedula(Integer.parseInt(fa.getCampoCedula().getText()));
+                output.println(fa.getAportante().getNombre()+" : "+ fa.getAportante().getApellido() +" : " + fa.getAportante().getCedula() + " : " + fa.getAportante().getDinero());
+                gestor.addPrestamista(fa.getAportante());
+                fa.getHecho().setText("Se ha agregado el Aportante");
+            } catch (FileNotFoundException ex) {
+                System.out.println("");
+            }
+            
             
         }
         

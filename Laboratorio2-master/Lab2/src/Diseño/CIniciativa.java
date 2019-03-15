@@ -42,6 +42,7 @@ public class CIniciativa {
             fi.getIniciativa().setValorMax(Integer.parseInt(fi.getCampoValorMax().getText()));
             fi.getIniciativa().setValorMin(Integer.parseInt(fi.getCampoValorMin().getText()));
             fi.getIniciativa().setIntervalo(Integer.parseInt(fi.getCampoIntervalo().getText()));
+            fi.getHecho().setText("Se ha agregado el promotor");
             promotor.addIniciativa(fi.getIniciativa());
             
         }

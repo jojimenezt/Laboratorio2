@@ -51,7 +51,7 @@ public class Finiciativa {
     private TextField campoIntervalo;
     
    
-    
+    private Label hecho; 
   
     private Button agregar;
     private Button  volver;
@@ -112,9 +112,13 @@ public class Finiciativa {
         campoIntervalo=new TextField();
         grid.add(campoIntervalo, 1, 7);
         
-        agregar= new Button("Agregar");
-         volver=new Button("Volver");
+        hecho=new Label("");
+        grid.add(hecho, 0, 8);
         
+        agregar= new Button("Agregar");
+        volver=new Button("Volver");
+        
+         
         caja=new HBox(agregar, volver);
         grid.add(caja, 1, 9);
         escena=new Scene(grid,900,900);
@@ -309,6 +313,15 @@ public class Finiciativa {
     public void setCampoIntervalo(TextField campoIntervalo) {
         this.campoIntervalo = campoIntervalo;
     }
+
+    public Label getHecho() {
+        return hecho;
+    }
+
+    public void setHecho(Label hecho) {
+        this.hecho = hecho;
+    }
+    
     
     
 }
