@@ -35,18 +35,12 @@ public class FAportante {
     private Label apellido;
     private TextField campoApellido;
     
-    private Label cedula;
-    private TextField campoCedula;
-    
-    
     private Label dinero;
     private TextField campoDinero;
     
-    private Label hecho;
-    
   
     private Button agregar;
-    private Button volver;
+    private Button borrar;
     private HBox caja;
     
     public FAportante() {
@@ -74,33 +68,50 @@ public class FAportante {
         campoApellido=new TextField();
         grid.add(campoApellido, 1, 2);
         
-        cedula=new Label("Cedula: ");
-        grid.add(cedula, 0, 3);
-        
-        campoCedula= new TextField();
-        grid.add(campoCedula, 1, 3);
-        
         dinero=new Label("Dinero: ");
-        grid.add(dinero, 0, 4);
+        grid.add(dinero, 0, 3);
         
         campoDinero=new TextField();
-        grid.add(campoDinero, 1, 4);
-        
-        hecho=new Label("");
-        grid.add(hecho, 0, 4);
+        grid.add(campoDinero, 1, 3);
         
         agregar= new Button("Agregar");
-        volver=new Button("Volver");
+        borrar=new Button("Volver");
         
-        caja=new HBox(agregar,volver);
+        caja=new HBox(agregar,borrar);
         grid.add(caja, 1, 5);
         escena=new Scene(grid,500,500);
-        aportante=new Aportante(0.0,null, null,0);
+        aportante=new Aportante(0.0,null, null);
+        
+        agregar.setOnAction(new Agregar());
+        borrar.setOnAction(new Volver());
+        
+    }
+    
+    class Agregar implements EventHandler<ActionEvent>{
+
+        @Override
+        public void handle(ActionEvent event) {
+            aportante.setNombre(campoNombre.getText());
+            aportante.setApellido(campoApellido.getText());
+            aportante.setDinero((Double.parseDouble(campoDinero.getText())));
+        }
+        
+    }
+    
+    
+    class Volver implements EventHandler<ActionEvent>{
+
+        @Override
+        public void handle(ActionEvent event) {
+            CrowFunding cf=new CrowFunding();
+            cf.show(stage);
+            
+        }
+        
     }
     
    
     
- 
     public void show(Stage stage){
         stage.setTitle("CrowFounding");
         stage.setScene(escena);
@@ -171,12 +182,12 @@ public class FAportante {
         this.agregar = agregar;
     }
 
-    public Button getVolver() {
-        return volver;
+    public Button getBorrar() {
+        return borrar;
     }
 
-    public void setVolver(Button borrar) {
-        this.volver = borrar;
+    public void setBorrar(Button borrar) {
+        this.borrar = borrar;
     }
 
     public HBox getCaja() {
@@ -186,64 +197,4 @@ public class FAportante {
     public void setCaja(HBox caja) {
         this.caja = caja;
     }
-
-    public Stage getStage() {
-        return stage;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
-    public Aportante getAportante() {
-        return aportante;
-    }
-
-    public void setAportante(Aportante aportante) {
-        this.aportante = aportante;
-    }
-
-    public Label getDinero() {
-        return dinero;
-    }
-
-    public void setDinero(Label dinero) {
-        this.dinero = dinero;
-    }
-
-    public TextField getCampoDinero() {
-        return campoDinero;
-    }
-
-    public void setCampoDinero(TextField campoDinero) {
-        this.campoDinero = campoDinero;
-    }
-
-    public Label getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(Label cedula) {
-        this.cedula = cedula;
-    }
-
-    public TextField getCampoCedula() {
-        return campoCedula;
-    }
-
-    public void setCampoCedula(TextField campoCedula) {
-        this.campoCedula = campoCedula;
-    }
-
-    public Label getHecho() {
-        return hecho;
-    }
-
-    public void setHecho(Label hecho) {
-        this.hecho = hecho;
-    }
-    
-    
-    
-    
 }

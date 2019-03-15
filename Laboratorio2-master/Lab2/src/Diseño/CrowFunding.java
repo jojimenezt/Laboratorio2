@@ -20,109 +20,92 @@ import javafx.stage.Stage;
  *
  * @author Lenovo
  */
-public class CrowFunding {
+public class CrowFunding extends Application{
 
     private Text titulo;
     private Button promotor;
     private Button aportante;
     private Button iniciativa;
-    private Button subasta;
     private HBox h;
+    private FPromotor escena2;
+    private FAportante faportante;
     private VBox v;
     private Scene scene;
-    
+    private Finiciativa finiciativa;
 
     public CrowFunding() {
         titulo= new Text("CROWFOUNDING");
         promotor=new Button("Agregar promotor");
         aportante=new Button("Agregar aportante:");
         iniciativa=new Button("Agregar iniciativa");
-        subasta=new Button("Crear Subasta");
-        h=new HBox(promotor,aportante,iniciativa,subasta);
+        h=new HBox(promotor,aportante,iniciativa);
+        escena2=new FPromotor();
+        faportante=new FAportante();
+        finiciativa=new Finiciativa();
         v=new VBox(titulo,h);
         scene=new Scene(v,500,500);
     }
     
-  
+    
+   
+    
+    
+    @Override
+    public void start(Stage primaryStage) throws Exception {
         
-        public void show(Stage stage){
+        
+        
+        promotor.setOnAction(
+                new EventHandler <ActionEvent>(){
+
+                    @Override
+                    public void handle(ActionEvent event) {
+                        
+                        escena2.show(primaryStage);
+                    }
+                }
+        );
+        
+        aportante.setOnAction(
+                new EventHandler <ActionEvent>(){
+
+                    @Override
+                    public void handle(ActionEvent event) {
+                        
+                        faportante.show(primaryStage);
+                    }
+                }
+        );
+        
+        iniciativa.setOnAction(
+                new EventHandler <ActionEvent>(){
+
+                    @Override
+                    public void handle(ActionEvent event) {
+                        
+                        finiciativa.show(primaryStage);
+                    }
+                }
+        );
+        
+        VBox v=new VBox(titulo,h);
+        Scene escena=new Scene(v,500,500);
+        primaryStage.setScene(escena);
+        primaryStage.show();
+        
+        
+    }
+    
+     
+    
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+    
+     public void show(Stage stage){
         stage.setTitle("CrowFounding");
         stage.setScene(scene);
         stage.show();
-        }
-
-    public Text getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(Text titulo) {
-        this.titulo = titulo;
-    }
-
-    public Button getPromotor() {
-        return promotor;
-    }
-
-    public void setPromotor(Button promotor) {
-        this.promotor = promotor;
-    }
-
-    public Button getAportante() {
-        return aportante;
-    }
-
-    public void setAportante(Button aportante) {
-        this.aportante = aportante;
-    }
-
-    public Button getIniciativa() {
-        return iniciativa;
-    }
-
-    public void setIniciativa(Button iniciativa) {
-        this.iniciativa = iniciativa;
-    }
-
-    public HBox getH() {
-        return h;
-    }
-
-    public void setH(HBox h) {
-        this.h = h;
-    }
-
-    public VBox getV() {
-        return v;
-    }
-
-    public void setV(VBox v) {
-        this.v = v;
-    }
-
-    public Scene getScene() {
-        return scene;
-    }
-
-    public void setScene(Scene scene) {
-        this.scene = scene;
-    }
-
-    public Button getSubasta() {
-        return subasta;
-    }
-
-    public void setSubasta(Button subasta) {
-        this.subasta = subasta;
-    }
-
-    
-    
-        
-    
-    
-    
-        
     }
     
-    
-    
+}

@@ -51,10 +51,10 @@ public class Finiciativa {
     private TextField campoIntervalo;
     
    
-    private Label hecho; 
+    
   
     private Button agregar;
-    private Button  volver;
+    private Button borrar;
     private HBox caja;
     
     public Finiciativa() {
@@ -112,23 +112,48 @@ public class Finiciativa {
         campoIntervalo=new TextField();
         grid.add(campoIntervalo, 1, 7);
         
-        hecho=new Label("");
-        grid.add(hecho, 0, 8);
-        
         agregar= new Button("Agregar");
-        volver=new Button("Volver");
+        borrar=new Button("Volver");
         
-         
-        caja=new HBox(agregar, volver);
+        caja=new HBox(agregar,borrar);
         grid.add(caja, 1, 9);
         escena=new Scene(grid,900,900);
         iniciativa=new Iniciativa(null, null, null, 0, 0, 0, 0, null, false);
         
-       
+        agregar.setOnAction(new Agregar());
+        borrar.setOnAction(new Volver());
         
     }
     
-  
+    class Agregar implements EventHandler<ActionEvent>{
+
+        @Override
+        public void handle(ActionEvent event) {
+            iniciativa.setNombre(campoNombre.getText());
+            iniciativa.setTipo(campoTipo.getText());
+            iniciativa.setDescripcion(campoDescripcion.getText());
+            iniciativa.setNumPrestamistas(Integer.parseInt(campoNumPrestamistas.getText()));
+            iniciativa.setValorMax(Integer.parseInt(campoValorMax.getText()));
+            iniciativa.setValorMin(Integer.parseInt(campoValorMin.getText()));
+            iniciativa.setIntervalo(Integer.parseInt(campoIntervalo.getText()));
+            
+        }
+        
+    }
+    
+    
+    class Volver implements EventHandler<ActionEvent>{
+
+        @Override
+        public void handle(ActionEvent event) {
+            CrowFunding cf=new CrowFunding();
+            cf.show(stage);
+            
+        }
+        
+    }
+    
+   
     
     public void show(Stage stage){
         stage.setTitle("CrowFounding");
@@ -186,12 +211,12 @@ public class Finiciativa {
         this.agregar = agregar;
     }
 
-    public Button getVolver() {
-        return  volver;
+    public Button getBorrar() {
+        return borrar;
     }
 
-    public void setVolver(Button  volver) {
-        this. volver =  volver;
+    public void setBorrar(Button borrar) {
+        this.borrar = borrar;
     }
 
     public HBox getCaja() {
@@ -201,127 +226,4 @@ public class Finiciativa {
     public void setCaja(HBox caja) {
         this.caja = caja;
     }
-
-    public Stage getStage() {
-        return stage;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
-    public Iniciativa getIniciativa() {
-        return iniciativa;
-    }
-
-    public void setIniciativa(Iniciativa iniciativa) {
-        this.iniciativa = iniciativa;
-    }
-
-    public Label getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(Label tipo) {
-        this.tipo = tipo;
-    }
-
-    public TextField getCampoTipo() {
-        return campoTipo;
-    }
-
-    public void setCampoTipo(TextField campoTipo) {
-        this.campoTipo = campoTipo;
-    }
-
-    public Label getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(Label descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public TextField getCampoDescripcion() {
-        return campoDescripcion;
-    }
-
-    public void setCampoDescripcion(TextField campoDescripcion) {
-        this.campoDescripcion = campoDescripcion;
-    }
-
-    public Label getNumPrestamistas() {
-        return numPrestamistas;
-    }
-
-    public void setNumPrestamistas(Label numPrestamistas) {
-        this.numPrestamistas = numPrestamistas;
-    }
-
-    public TextField getCampoNumPrestamistas() {
-        return campoNumPrestamistas;
-    }
-
-    public void setCampoNumPrestamistas(TextField campoNumPrestamistas) {
-        this.campoNumPrestamistas = campoNumPrestamistas;
-    }
-
-    public Label getValorMax() {
-        return valorMax;
-    }
-
-    public void setValorMax(Label valorMax) {
-        this.valorMax = valorMax;
-    }
-
-    public TextField getCampoValorMax() {
-        return campoValorMax;
-    }
-
-    public void setCampoValorMax(TextField campoValorMax) {
-        this.campoValorMax = campoValorMax;
-    }
-
-    public Label getValorMin() {
-        return valorMin;
-    }
-
-    public void setValorMin(Label valorMin) {
-        this.valorMin = valorMin;
-    }
-
-    public TextField getCampoValorMin() {
-        return campoValorMin;
-    }
-
-    public void setCampoValorMin(TextField campoValorMin) {
-        this.campoValorMin = campoValorMin;
-    }
-
-    public Label getIntervalo() {
-        return intervalo;
-    }
-
-    public void setIntervalo(Label intervalo) {
-        this.intervalo = intervalo;
-    }
-
-    public TextField getCampoIntervalo() {
-        return campoIntervalo;
-    }
-
-    public void setCampoIntervalo(TextField campoIntervalo) {
-        this.campoIntervalo = campoIntervalo;
-    }
-
-    public Label getHecho() {
-        return hecho;
-    }
-
-    public void setHecho(Label hecho) {
-        this.hecho = hecho;
-    }
-    
-    
-    
 }

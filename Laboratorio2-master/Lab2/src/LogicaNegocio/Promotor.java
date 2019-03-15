@@ -16,8 +16,8 @@ import java.util.ArrayList;
 public class Promotor extends Persona{
     private ArrayList<Iniciativa> iniciativa;
 
-    public Promotor(String nombre, String apellido, int cedula) {
-        super(nombre, apellido, cedula);
+    public Promotor(String nombre, String apellido) {
+        super(nombre, apellido);
         this.iniciativa = new ArrayList<>();
     }
 

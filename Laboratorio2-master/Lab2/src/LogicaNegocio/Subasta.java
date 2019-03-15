@@ -1,7 +1,5 @@
 package LogicaNegocio;
 
-import java.util.ArrayList;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +11,6 @@ import java.util.ArrayList;
  * @author Lenovo
  */
 public class Subasta {
-    private ArrayList<Aportante> posiblesCompradores;
-    private Iniciativa iniciativa;
     private double valorMax;
     private double valorMin;
     private double intervalo;
@@ -67,26 +63,6 @@ public class Subasta {
 
     public void setTiempoMeses(int tiempoMeses) {
         this.tiempoMeses = tiempoMeses;
-    }
-
-    public Iniciativa getIniciativa() {
-        return iniciativa;
-    }
-
-    public void setIniciativa(Iniciativa iniciativa) {
-        this.iniciativa = iniciativa;
-    }
-
-    public ArrayList<Aportante> getPosiblesCompradores() {
-        return posiblesCompradores;
-    }
-
-    public void setPosiblesCompradores(ArrayList<Aportante> posiblesCompradores) {
-        this.posiblesCompradores = posiblesCompradores;
-    }
-    
-    
-    
-    
+    }   
     
 }

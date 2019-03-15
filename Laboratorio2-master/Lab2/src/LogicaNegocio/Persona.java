@@ -13,12 +13,10 @@ package LogicaNegocio;
 public class Persona {
     private String nombre;
     private String apellido;
-    private int cedula;
 
-    public Persona(String nombre, String apellido, int cedula) {
+    public Persona(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.cedula=cedula;
     }
 
     public String getNombre() {
@@ -36,12 +34,4 @@ public class Persona {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }    
-
-    public int getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(int cedula) {
-        this.cedula = cedula;
-    }
 }
