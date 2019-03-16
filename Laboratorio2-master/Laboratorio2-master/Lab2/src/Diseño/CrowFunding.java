@@ -42,9 +42,7 @@ public class CrowFunding {
         v=new VBox(titulo,h);
         scene=new Scene(v,500,500);
     }
-    
-  
-        
+
         public void show(Stage stage){
         stage.setTitle("CrowFounding");
         stage.setScene(scene);
