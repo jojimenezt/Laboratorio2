@@ -26,11 +26,8 @@ public class CIniciativa {
         fi=new Finiciativa();
         fi.getAgregar().setOnAction(new Agregar());
         fi.getVolver().setOnAction(new Volver());
-        
-        
     }
     
-    int ac=0;
     
      class Agregar implements EventHandler<ActionEvent>{
 
@@ -44,10 +41,14 @@ public class CIniciativa {
             fi.getIniciativa().setValorMax(Integer.parseInt(fi.getCampoValorMax().getText()));
             fi.getIniciativa().setValorMin(Integer.parseInt(fi.getCampoValorMin().getText()));
             fi.getIniciativa().setIntervalo(Integer.parseInt(fi.getCampoIntervalo().getText()));
+            int cedula = Integer.parseInt(fi.getCampoCedulaPromotor().getText());
             fi.getHecho().setText("Se ha agregado el promotor");
-            promotor.addIniciativa(fi.getIniciativa());
-            gestor.getPromotor().get(ac).addIniciativa(fi.getIniciativa());
-            ac++;
+            for (int i = 0; i < gestor.getPromotor().size(); i++) {
+                if (gestor.getPromotor().get(i).getCedula()==cedula) {
+                    gestor.getPromotor().get(i).addIniciativa(fi.getIniciativa());
+                }
+            }
+            
            }catch(NullPointerException n){
                 Alert alert= new Alert(Alert.AlertType.ERROR,"Debe llenar todos los campos");
                 alert.setTitle("Error");

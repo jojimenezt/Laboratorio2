@@ -60,19 +60,19 @@ public class FSubasta {
         campoNombrePromotor=new TextField();
         grid.add(campoNombrePromotor, 1, 1);
         
-        nombreIniciativa= new Label("Apellido: ");
+        nombreIniciativa= new Label("Nombre Iniciativa: ");
         grid.add(nombreIniciativa, 0, 2);
         
         campoNombreIniciativa=new TextField();
         grid.add(campoNombreIniciativa, 1, 2);
         hecho=new Label("");
-        grid.add(hecho, 0, 4);
+        grid.add(hecho, 0, 3);
         
         agregar= new Button("Agregar");
         volver=new Button("Volver");
         
         caja=new HBox(agregar,volver);
-        grid.add(caja, 1, 5);
+        grid.add(caja, 1, 4);
         escena=new Scene(grid,500,500);
     }
     

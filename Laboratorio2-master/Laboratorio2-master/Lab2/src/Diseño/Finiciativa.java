@@ -51,6 +51,9 @@ public class Finiciativa {
     private TextField campoIntervalo;
     
    
+    private Label cedulaPromotor;
+    private TextField campoCedulaPromotor;
+    
     private Label hecho; 
   
     private Button agregar;
@@ -112,23 +115,27 @@ public class Finiciativa {
         campoIntervalo=new TextField();
         grid.add(campoIntervalo, 1, 7);
         
+        cedulaPromotor=new Label("Cedula promotor: ");
+        grid.add(cedulaPromotor, 0, 8);
+        
+        campoCedulaPromotor=new TextField();
+        grid.add(campoCedulaPromotor, 1, 8);
+        
         hecho=new Label("");
-        grid.add(hecho, 0, 8);
+        grid.add(hecho, 0, 9);
         
         agregar= new Button("Agregar");
         volver=new Button("Volver");
         
          
         caja=new HBox(agregar, volver);
-        grid.add(caja, 1, 9);
+        grid.add(caja, 1, 10);
         escena=new Scene(grid,900,900);
         iniciativa=new Iniciativa(null, null, null, 0, 0, 0, 0, null, false);
         
        
         
     }
-    
-  
     
     public void show(Stage stage){
         stage.setTitle("CrowFounding");
@@ -321,6 +328,23 @@ public class Finiciativa {
     public void setHecho(Label hecho) {
         this.hecho = hecho;
     }
+
+    public Label getCedulaPromotor() {
+        return cedulaPromotor;
+    }
+
+    public void setCedulaPromotor(Label cedulaPromotor) {
+        this.cedulaPromotor = cedulaPromotor;
+    }
+
+    public TextField getCampoCedulaPromotor() {
+        return campoCedulaPromotor;
+    }
+
+    public void setCampoCedulaPromotor(TextField campoCedulaPromotor) {
+        this.campoCedulaPromotor = campoCedulaPromotor;
+    }
+    
     
     
     

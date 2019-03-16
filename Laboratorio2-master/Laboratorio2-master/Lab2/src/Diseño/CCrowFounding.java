@@ -91,7 +91,7 @@ public class CCrowFounding {
 
         @Override
         public void handle(ActionEvent event) {
-            CVSubasta subasta= new CVSubasta(gestor);
+            CFSubasta subasta= new CFSubasta(gestor);
             subasta.mostrarVista();
         }
         
