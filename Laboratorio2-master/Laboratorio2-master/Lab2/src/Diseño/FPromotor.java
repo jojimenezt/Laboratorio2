@@ -89,9 +89,6 @@ public class FPromotor {
         grid.add(caja, 1, 5);
         escena=new Scene(grid,500,500);
         promotores= new ArrayList<>();
-        
-        
-        
     }
      
     public void show(Stage stage){

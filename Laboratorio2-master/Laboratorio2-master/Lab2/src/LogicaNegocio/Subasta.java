@@ -21,10 +21,10 @@ public class Subasta {
     private double tasa;
     private int tiempoMeses;
     
-    public Subasta(double valorMax, double valorMin, double intervalo, double tasa, int tiempoMeses) {
-        this.valorMax = valorMax;
-        this.valorMin = valorMin;
-        this.intervalo = intervalo;
+    public Subasta(double tasa, int tiempoMeses,Iniciativa iniciativa) {
+        this.valorMax = iniciativa.getValorMax();
+        this.valorMin = iniciativa.getValorMin();
+        this.intervalo = iniciativa.getIntervalo();
         this.tasa = tasa;
         this.tiempoMeses = tiempoMeses;
     }

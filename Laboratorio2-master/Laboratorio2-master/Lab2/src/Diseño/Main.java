@@ -7,6 +7,7 @@ package Diseño;
 
 import LogicaNegocio.Aportante;
 import LogicaNegocio.GestorPlataforma;
+import LogicaNegocio.Iniciativa;
 import LogicaNegocio.Promotor;
 import java.io.File;
 import java.io.PrintStream;
@@ -29,7 +30,8 @@ public class Main extends Application{
         singleton.setStage(primaryStage);
         ArrayList<Promotor> promotores=new ArrayList<>();
         ArrayList<Aportante> aportantes=new ArrayList<>();
-        GestorPlataforma gestor=new GestorPlataforma(0, promotores, aportantes, "gestor", "plataforma",1000000);
+        ArrayList<Iniciativa> iniciativas = new ArrayList<>();
+        GestorPlataforma gestor=new GestorPlataforma(0, promotores, aportantes, "gestor", "plataforma",1000000,iniciativas);
         CCrowFounding c= new CCrowFounding(gestor);
         c.mostrar();
        

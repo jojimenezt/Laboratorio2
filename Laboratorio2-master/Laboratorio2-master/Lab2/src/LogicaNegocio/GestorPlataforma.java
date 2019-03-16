@@ -17,6 +17,7 @@ public class GestorPlataforma extends Persona{
     private double fondo;
     private ArrayList<Promotor> promotor;
     private ArrayList<Aportante> prestamistas;
+    private ArrayList<Iniciativa> iniciativas;
     private Subasta subasta;
     private boolean comprado;
 
@@ -28,12 +29,13 @@ public class GestorPlataforma extends Persona{
         this.comprado = comprado;
     }
     
-    public GestorPlataforma(double fondo, ArrayList<Promotor> promotor, ArrayList<Aportante> prestamistas, String nombre, String apellido, int cedula) {
+    public GestorPlataforma(double fondo, ArrayList<Promotor> promotor, ArrayList<Aportante> prestamistas, String nombre, String apellido, int cedula, ArrayList<Iniciativa> iniciativa) {
         super(nombre, apellido,cedula);
         this.fondo = fondo;
         this.promotor = promotor;
         this.prestamistas = prestamistas;
-        this.subasta= new Subasta(0.0,0.0,0.0,0.0,0);
+        this.iniciativas=iniciativa;
+        this.subasta= new Subasta(0.0,0,null);
     }
 
     public double getFondo() {
