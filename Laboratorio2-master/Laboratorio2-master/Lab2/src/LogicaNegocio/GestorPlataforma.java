@@ -163,5 +163,9 @@ public class GestorPlataforma extends Persona{
         
     }
     
-    
+    public Iniciativa getIniciativa(String nombrePromotor, String nombreIniciativa){
+        Iniciativa resultado=null;
+        
+        return resultado;
+    }
 }

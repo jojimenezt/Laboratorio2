@@ -76,7 +76,7 @@ public class VPrestamo {
     }
     
         public void show(Stage stage){
-        stage.setTitle("CrowFounding");
+        stage.setTitle("Prestamp");
         stage.setScene(escena);
         stage.show();
     }
