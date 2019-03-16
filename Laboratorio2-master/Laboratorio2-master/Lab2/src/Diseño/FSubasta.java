@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Diseño;
+import LogicaNegocio.GestorPlataforma;
+import LogicaNegocio.Iniciativa;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -24,6 +26,7 @@ import javafx.stage.Stage;
  * @author Lenovo
  */
 public class FSubasta {
+    
     private Scene escena;
     private GridPane grid;
     private Text titulo;
@@ -34,7 +37,7 @@ public class FSubasta {
     private TextField campoNombreIniciativa;
     
     private Label hecho;
-  
+    private GestorPlataforma gestor;
     private Button agregar;
     private Button volver;
     private HBox caja;
@@ -47,7 +50,6 @@ public class FSubasta {
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
-        
         stage=new Stage();
         
         titulo= new Text("Formulario de Subasta");
@@ -68,13 +70,14 @@ public class FSubasta {
         hecho=new Label("");
         grid.add(hecho, 0, 3);
         
-        agregar= new Button("Agregar");
+        agregar= new Button("Siguiente");
         volver=new Button("Volver");
         
         caja=new HBox(agregar,volver);
         grid.add(caja, 1, 4);
         escena=new Scene(grid,500,500);
     }
+    
     
     public void show(Stage stage){
         stage.setTitle("CrowFounding");

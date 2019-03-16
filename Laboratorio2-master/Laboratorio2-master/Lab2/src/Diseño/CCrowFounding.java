@@ -42,9 +42,7 @@ public class CCrowFounding {
            
                 cp = new CPromotor(gestor);
                 cp.mostrarVista();
-            
-            
-           
+          
         }
         
     }

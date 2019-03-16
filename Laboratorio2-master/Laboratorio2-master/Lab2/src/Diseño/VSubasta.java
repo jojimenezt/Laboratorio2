@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -43,13 +44,13 @@ public class VSubasta {
     private Label aportante;
     private Label nombreAportante;
     private Label aor;
-    
+    private Iniciativa iniciativa;
     private Button aceptar;
     private Button rechazar;
-    
+    private HBox caja;
     private int ac=0;
 
-    public VSubasta(Iniciativa iniciativa) {
+    public VSubasta() {
         stage= new Stage();
         this.grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -63,17 +64,17 @@ public class VSubasta {
         
         nombre= new Label("Nombre de la iniciativa: ");
         grid.add(nombre, 0, 1);
-        nombreIniciativa= new Label(iniciativa.getNombre());
+        nombreIniciativa= new Label(this.iniciativa.getNombre());
         grid.add(nombre, 1, 1);
         
         tipo= new Label("Tipo de la iniciativa: ");
         grid.add(nombre, 0, 2);
-        nombreIniciativa= new Label(iniciativa.getTipo());
+        nombreIniciativa= new Label(this.iniciativa.getTipo());
         grid.add(nombre, 1, 2);
         
         descripcion= new Label("Descripcion de la iniciativa: ");
         grid.add(nombre, 0, 3);
-        descripcionIniciativa= new Label(iniciativa.getDescripcion());
+        descripcionIniciativa= new Label(this.iniciativa.getDescripcion());
         grid.add(nombre, 1, 3);
         
         aportante= new Label("Aportante");
@@ -81,9 +82,12 @@ public class VSubasta {
         nombreAportante=new Label(subasta.getPosiblesCompradores().get(ac).getNombre());
         grid.add(nombre, 1, 4);
         aor=new Label("Acepta o rechaza esta subasta");
-        
+        grid.add(aor, 0, 5);
         aceptar= new Button("Aceptar");
         rechazar= new Button("rechazar");
+        
+        caja=new HBox(aceptar,rechazar);
+        grid.add(caja, 1, 4);
         
         escena=new Scene(grid,500,500);
     }
@@ -246,13 +250,22 @@ public class VSubasta {
     public void setAc(int ac) {
         this.ac = ac;
     }
-    
-    
-    
-    
-    
-    
-    
+
+    public Iniciativa getIniciativa() {
+        return iniciativa;
+    }
+
+    public void setIniciativa(Iniciativa iniciativa) {
+        this.iniciativa = iniciativa;
+    }
+
+    public HBox getCaja() {
+        return caja;
+    }
+
+    public void setCaja(HBox caja) {
+        this.caja = caja;
+    }
     
     
 }

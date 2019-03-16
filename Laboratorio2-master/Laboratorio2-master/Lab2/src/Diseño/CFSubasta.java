@@ -20,6 +20,7 @@ import javafx.scene.control.Alert;
 public class CFSubasta {
     private FSubasta subasta;
     private GestorPlataforma gestor;
+    private Iniciativa iniciativa;
 
     public CFSubasta(GestorPlataforma gestor) {
         this.gestor = gestor;
@@ -32,15 +33,18 @@ public class CFSubasta {
 
         @Override
         public void handle(ActionEvent event) {
+            Iniciativa iniciativa=gestor.getIniciativa(Integer.parseInt(subasta.getCampoCedulaPromotor().getText()),subasta.getCampoNombreIniciativa().getText());
             try{
-                CVSubasta subasta = new CVSubasta(gestor);
-                subasta.mostrarVista();
+                CVSubasta subasta1 = new CVSubasta(gestor);
+                subasta1.mostrarVista();
+                subasta1.setIniciativa(iniciativa);
+                
             }catch(NullPointerException n){
-                Alert alert= new Alert(Alert.AlertType.ERROR,"Debe llenar todos los campos");
+                Alert alert= new Alert(Alert.AlertType.ERROR,"Debe llenar todos los campos 1");
                 alert.setTitle("Error");
                 alert.showAndWait();
             }catch(NumberFormatException nf){
-                Alert alert= new Alert(Alert.AlertType.ERROR,"Debe llenar todos los campos");
+                Alert alert= new Alert(Alert.AlertType.ERROR,"Debe llenar todos los campos 2");
                 alert.setTitle("Error");
                 alert.showAndWait();
             }
