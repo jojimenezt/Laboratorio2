@@ -30,14 +30,11 @@ public class Main extends Application{
         singleton.setStage(primaryStage);
         ArrayList<Promotor> promotores=new ArrayList<>();
         ArrayList<Aportante> aportantes=new ArrayList<>();
-        ArrayList<Iniciativa> iniciativas = new ArrayList<>();
-        GestorPlataforma gestor=new GestorPlataforma(0, promotores, aportantes, "gestor", "plataforma",1000000,iniciativas);
+        GestorPlataforma gestor=new GestorPlataforma(0, promotores, aportantes, "gestor", "plataforma",1000000);
         CCrowFounding c= new CCrowFounding(gestor);
         c.mostrar();
        
     }
-    
-    
     
     public static void main(String[] args) {
         

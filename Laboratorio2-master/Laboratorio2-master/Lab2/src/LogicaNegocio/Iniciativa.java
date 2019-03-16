@@ -35,6 +35,19 @@ public class Iniciativa {
         this.subastado = subastado;
         this.valorPosSubasta=0.0;
     }
+
+    public Iniciativa() {
+        this.nombre="" ;
+        this.tipo ="";
+        this.descripcion = "";
+        this.numPrestamistas = 0;
+        this.valorMax = 0;
+        this.valorMin = 0;
+        this.intervalo = 0;
+        this.prestamistas = new Aportante[this.numPrestamistas];
+        this.subastado = false;
+        this.valorPosSubasta=0.0;
+    }
     
     public String getNombre() {
         return nombre;

@@ -74,7 +74,6 @@ public class CIniciativa {
         }
         
     }
-     
     
      public void mostrarVista(){
         Singleton singleton=Singleton.getSingleton();

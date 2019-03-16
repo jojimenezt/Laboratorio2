@@ -101,7 +101,6 @@ public class CCrowFounding {
     public void mostrar(){
         Singleton singleton=Singleton.getSingleton();
         this.cf.show(singleton.getStage());
-
     }
     
    
