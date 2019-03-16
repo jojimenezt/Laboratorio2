@@ -67,9 +67,6 @@ public class VPrestamo {
         campoTiempoMeses=new TextField();
         grid.add(campoTiempoMeses, 1, 2);
         
-        /*hecho=new Label("");
-        grid.add(hecho, 0, 4);
-        */
         agregar= new Button("Agregar");
         volver=new Button("Volver");
         
