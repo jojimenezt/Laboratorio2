@@ -164,9 +164,19 @@ public class GestorPlataforma extends Persona{
         
     }
     
-    public Iniciativa getIniciativa(String nombrePromotor, String nombreIniciativa){
+    public Iniciativa getIniciativa(int cedulaPromotor, String nombreIniciativa){
         Iniciativa resultado=null;
-        
+        Promotor promotorResultado=null;
+        for (int i = 0; i < this.promotor.size(); i++) {
+            if(this.promotor.get(i).getCedula()==cedulaPromotor){
+                promotorResultado=this.promotor.get(i);
+            }
+        }
+        for (int i = 0; i < promotorResultado.getIniciativa().size(); i++) {
+            if(promotorResultado.getIniciativa().get(i).getNombre().equals(nombreIniciativa)){
+                resultado=promotorResultado.getIniciativa().get(i);
+            }
+        }
         return resultado;
     }
 }

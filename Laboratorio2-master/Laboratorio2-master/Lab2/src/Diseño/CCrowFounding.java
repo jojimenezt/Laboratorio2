@@ -79,7 +79,7 @@ public class CCrowFounding {
                 alert.setTitle("Error");
                 alert.showAndWait();
             }catch(IndexOutOfBoundsException f){
-                Alert alert= new Alert(Alert.AlertType.ERROR,"No existen promotres en el sistema, debes agregar almenos un Promotor");
+                Alert alert= new Alert(Alert.AlertType.ERROR,"No existen promotores en el sistema, debes agregar al menos un Promotor");
                 alert.setTitle("Error");
                 alert.showAndWait();
             }

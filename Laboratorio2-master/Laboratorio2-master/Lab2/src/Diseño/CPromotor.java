@@ -35,7 +35,7 @@ public class CPromotor {
     
     int ac=0; //posicion del promotro que va a escribir en el archivo
     
-     class Agregar implements EventHandler<ActionEvent>{
+    class Agregar implements EventHandler<ActionEvent>{
 
         @Override
         public void handle(ActionEvent event) {

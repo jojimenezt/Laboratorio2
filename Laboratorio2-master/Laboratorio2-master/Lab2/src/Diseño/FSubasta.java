@@ -27,8 +27,8 @@ public class FSubasta {
     private Scene escena;
     private GridPane grid;
     private Text titulo;
-    private Label nombrePromotor;
-    private TextField campoNombrePromotor;
+    private Label cedulaPromotor;
+    private TextField campoCedulaPromotor;
     
     private Label nombreIniciativa;
     private TextField campoNombreIniciativa;
@@ -50,15 +50,15 @@ public class FSubasta {
         
         stage=new Stage();
         
-        titulo= new Text("Formulario de Promotor");
+        titulo= new Text("Formulario de Subasta");
         titulo.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         grid.add(titulo, 0,0,2,1);
         
-        nombrePromotor= new Label("Nombre Promotor: ");
-        grid.add(nombrePromotor, 0, 1);
+        cedulaPromotor= new Label("Cedula Promotor: ");
+        grid.add(cedulaPromotor, 0, 1);
         
-        campoNombrePromotor=new TextField();
-        grid.add(campoNombrePromotor, 1, 1);
+        campoCedulaPromotor=new TextField();
+        grid.add(campoCedulaPromotor, 1, 1);
         
         nombreIniciativa= new Label("Nombre Iniciativa: ");
         grid.add(nombreIniciativa, 0, 2);
@@ -106,20 +106,20 @@ public class FSubasta {
         this.titulo = titulo;
     }
 
-    public Label getNombrePromotor() {
-        return nombrePromotor;
+    public Label getCedulaPromotor() {
+        return cedulaPromotor;
     }
 
-    public void setNombrePromotor(Label nombrePromotor) {
-        this.nombrePromotor = nombrePromotor;
+    public void setCedulaPromotor(Label cedulaPromotor) {
+        this.cedulaPromotor = cedulaPromotor;
     }
 
-    public TextField getCampoNombrePromotor() {
-        return campoNombrePromotor;
+    public TextField getCampoCedulaPromotor() {
+        return campoCedulaPromotor;
     }
 
-    public void setCampoNombrePromotor(TextField campoNombrePromotor) {
-        this.campoNombrePromotor = campoNombrePromotor;
+    public void setCampoCedulaPromotor(TextField campoCedulaPromotor) {
+        this.campoCedulaPromotor = campoCedulaPromotor;
     }
 
     public Label getNombreIniciativa() {

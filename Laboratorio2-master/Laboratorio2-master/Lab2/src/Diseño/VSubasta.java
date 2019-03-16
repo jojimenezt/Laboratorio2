@@ -5,7 +5,7 @@
  */
 package Diseño;
 
-import LogicaNegocio.Subasta;
+import LogicaNegocio.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -37,7 +37,6 @@ public class VSubasta {
     private Label descripcion;
     private Label descripcionIniciativa;
    
-    
     private Label valor;
     private Label valorIniciativa;
     
@@ -50,7 +49,7 @@ public class VSubasta {
     
     private int ac=0;
 
-    public VSubasta() {
+    public VSubasta(Iniciativa iniciativa) {
         stage= new Stage();
         this.grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -64,17 +63,17 @@ public class VSubasta {
         
         nombre= new Label("Nombre de la iniciativa: ");
         grid.add(nombre, 0, 1);
-        nombreIniciativa= new Label(subasta.getIniciativa().getNombre());
+        nombreIniciativa= new Label(iniciativa.getNombre());
         grid.add(nombre, 1, 1);
         
         tipo= new Label("Tipo de la iniciativa: ");
         grid.add(nombre, 0, 2);
-        nombreIniciativa= new Label(subasta.getIniciativa().getTipo());
+        nombreIniciativa= new Label(iniciativa.getTipo());
         grid.add(nombre, 1, 2);
         
         descripcion= new Label("Descripcion de la iniciativa: ");
         grid.add(nombre, 0, 3);
-        descripcionIniciativa= new Label(subasta.getIniciativa().getDescripcion());
+        descripcionIniciativa= new Label(iniciativa.getDescripcion());
         grid.add(nombre, 1, 3);
         
         aportante= new Label("Aportante");
