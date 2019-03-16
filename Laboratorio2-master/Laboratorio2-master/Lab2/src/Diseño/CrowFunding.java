@@ -114,12 +114,6 @@ public class CrowFunding {
     public void setSubasta(Button subasta) {
         this.subasta = subasta;
     }
-
-    
-    
-        
-    
-    
     
         
     }
